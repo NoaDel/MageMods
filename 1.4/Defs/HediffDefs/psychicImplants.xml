@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Psychic reader -->
+
+	<HediffDef ParentName="ImplantHediffBase">
+		<defName>PsychicAimer</defName>
+		<label>psychic aimer</label>
+		<labelNoun>a psychic reader</labelNoun>
+		<description>An installed psychic reader implant.</description>
+		<descriptionHyperlinks>
+			<ThingDef>PsychicReader</ThingDef>
+		</descriptionHyperlinks>
+		<spawnThingOnRemoved>PsychicReader</spawnThingOnRemoved>
+		<stages>
+			<li>
+				<statOffsets>
+					<MechBandwidth>10</MechBandwidth>
+				</statOffsets>
+				<statOffsetEffectMultiplier>PsychicSensitivity</statOffsetEffectMultiplier>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThingDef ParentName="BodyPartRoyalBase">
+		<defName>PsychicAimer</defName>
+		<label>psychic aimer</label>
+		<description>Gives limited mind-reading ability, improving the user's ability to get the upper hand in negotiations and social situations. The effect is proportional to the user's psychic sensitivity.</description>
+		<descriptionHyperlinks>
+			<RecipeDef>InstallPsychicReader</RecipeDef>
+		</descriptionHyperlinks>
+		<statBases>
+			<MarketValue>1000</MarketValue>
+		</statBases>
+	</ThingDef>
+
+	<RecipeDef ParentName="SurgeryInstallImplantBase">
+		<defName>InstallPsychicAimer</defName>
+		<label>install psychic aimer</label>
+		<description>Install a psychic reader.</description>
+		<descriptionHyperlinks>
+			<ThingDef>PsychicReader</ThingDef>
+			<HediffDef>PsychicReader</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Installing psychic reader.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>PsychicReader</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>PsychicReader</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>PsychicReader</addsHediff>
+	</RecipeDef>
+
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>RemovePsychicAimer</defName>
+		<label>remove psychic aimer</label>
+		<description>Remove psychic reader.</description>
+		<descriptionHyperlinks>
+			<ThingDef>PsychicReader</ThingDef>
+			<HediffDef>PsychicReader</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing psychic reader.</jobString>
+		<removesHediff>PsychicReader</removesHediff>
+	</RecipeDef>
+
+</Defs>

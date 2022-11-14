@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef Name="BaseWeaponPsychic" Abstract="True" ParentName="BaseWeapon">
+		<techLevel>Neolithic</techLevel>
+		<weaponTags>
+			<li>Neolithic</li>
+		</weaponTags>
+		<tradeTags>
+			<li>WeaponRanged</li>
+		</tradeTags>
+		<weaponClasses>
+			<li>Neolithic</li>
+		</weaponClasses>
+		<thingCategories>
+			<li>WeaponsRanged</li>
+		</thingCategories>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+		<relicChance>1</relicChance>
+	</ThingDef>
+
+	<ThingDef Name="BaseProjectilePsychic" Abstract="True">
+		<category>Projectile</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<thingClass>Bullet</thingClass>
+		<label>arrow</label>
+		<useHitPoints>False</useHitPoints>
+		<neverMultiSelect>True</neverMultiSelect>
+		<graphicData>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseWeaponPsychic">
+		<defName>Kinesis_Bow</defName>
+		<label>kinesis bow</label>
+		<description>A simple short selfbow made from a single piece of wood.</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/BowShort</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Bow_Small</soundInteract>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>12</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>AdvancedFabrication</researchPrerequisite>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers>
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+		</recipeMaker>
+		<statBases>
+			<WorkToMake>2400</WorkToMake>
+			<Mass>0.8</Mass>
+			<AccuracyTouch>0.75</AccuracyTouch>
+			<AccuracyShort>0.65</AccuracyShort>
+			<AccuracyMedium>0.45</AccuracyMedium>
+			<AccuracyLong>0.25</AccuracyLong>
+			<RangedWeapon_Cooldown>1.65</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>NeolithicRangedBasic</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedLight</li>
+			<li>RangedPsychicSens</li>
+		</weaponClasses>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Arrow_Short</defaultProjectile>
+				<warmupTime>1.35</warmupTime>
+				<range>22.9</range>
+				<soundCast>Bow_Small</soundCast>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>limb</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+		<rotateInShelves>false</rotateInShelves>
+	</ThingDef>
+	<ThingDef ParentName="BaseProjectileNeolithic">
+		<defName>Arrow_Short</defName>
+		<label>shortbow arrow</label>
+		<graphicData>
+			<texPath>Things/Projectile/Arrow_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Arrow</damageDef>
+			<damageAmountBase>11</damageAmountBase>
+			<speed>44</speed>
+		</projectile>
+	</ThingDef>
+</Defs>

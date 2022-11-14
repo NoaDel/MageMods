@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<WeaponClassDef>
+		<defName>MeleePsychicSens</defName>
+		<label>meleepsychicsens</label>
+	</WeaponClassDef>
+	<WeaponClassDef>
+		<defName>RangedPsychicSens</defName>
+		<label>rangedpsychicsens</label>
+	</WeaponClassDef>
+
+</Defs>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ThingDef ParentName="MeleeWeaponUltratech">
+		<defName>Inertial_KinesisBlade</defName>
+		<label>kinesis blade</label>
+		<description>A lattice of loosely held fragments of eltex, when wielded by a capable psycaster can form the sharpest of edges.</description>
+		<soundInteract>Interact_MonoSword</soundInteract>
+		<meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<relicChance>3</relicChance>
+		<smeltable>false</smeltable>
+		<weaponClasses>
+			<li>MeleePiercer</li>
+			<li>MeleePsychicSens</li>
+		</weaponClasses>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponMelee/Monosword</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<modExtensions>
+			<li Class="MageMods.PsychicModExtension">
+				<PsychicSens>1</PsychicSens>
+			</li>
+		</modExtensions>
+		<tools>
+			<li>
+				<label>handle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>1.6</cooldownTime>
+			</li>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>25</power>
+				<cooldownTime>2</cooldownTime>
+				<armorPenetration>0.9</armorPenetration>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>25</power>
+				<cooldownTime>2</cooldownTime>
+				<armorPenetration>0.9</armorPenetration>
+			</li>
+		</tools>
+		<equippedStatOffsets>
+			<PsychicSensitivityOffset>0.50</PsychicSensitivityOffset>
+		</equippedStatOffsets>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>12</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<statBases>
+			<WorkToMake>12000</WorkToMake>
+			<Mass>0.85</Mass>
+		</statBases>
+		<recipeMaker>
+			<researchPrerequisite>AdvancedFabrication</researchPrerequisite>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers>
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+		</recipeMaker>
+	</ThingDef>
+
+</Defs>
