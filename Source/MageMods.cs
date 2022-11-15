@@ -43,34 +43,28 @@ namespace MageMods
     public static class AdjustedMeleeDamageAmount_Patch
     {
         public const float damageMin = 0f;
-        public static Dictionary<Thing, bool> cachedWeapons = new Dictionary<Thing, bool>();
+        //public static Dictionary<Thing, bool> cachedWeapons = new Dictionary<Thing, bool>();
 
         public static void Postfix(ref float __result, Tool tool, Pawn attacker, Thing equipment)
         {
-            if (attacker.equipment.Primary != null)
-            {
-                if (cachedWeapons.ContainsKey(attacker.equipment.Primary))
+                /*if (cachedWeapons.ContainsKey(attacker.equipment.Primary))
                 {
+                    if (cachedWeapons[attacker.equipment?.Primary])
+                    {
                     if (cachedWeapons[attacker.equipment.Primary])
                     {
                         __result = __result * Mathf.Sqrt(MeleePsychicDamage.GetPsychicSensitivity(attacker));
                     }
                     return;
-                }
-
-                for (int i = 0; i < attacker.equipment.Primary.def.weaponClasses.Count; i++)
+                }*/
+                if (attacker.equipment?.Primary != null && equipment?.def.HasModExtension<PsychicModExtension>() == true)
                 {
-                    if (Convert.ToString(attacker.equipment.Primary.def.weaponClasses[i]) == "MeleePsychicSens")
-                    {
-                        __result = __result * MeleePsychicDamage.GetPsychicSensitivity(attacker);
-                        cachedWeapons[attacker.equipment.Primary] = true;
-                        Log.Message(Convert.ToString(attacker.GetStatValue(StatDefOf.PsychicSensitivity)));
-                        return;
-                    }
+                     __result = __result * Mathf.Sqrt(MeleePsychicDamage.GetPsychicSensitivity(attacker) * equipment.def.GetModExtension<PsychicModExtension>().PsychicSens);
+                     //cachedWeapons[attacker.equipment.Primary] = true;
+                     //Log.Message(Convert.ToString(attacker.GetStatValue(StatDefOf.PsychicSensitivity)));
+                     return;
                 }
-
-                cachedWeapons[attacker.equipment.Primary] = false;
-            }
+                //cachedWeapons[attacker.equipment.Primary] = false;
         }
     }
     [HarmonyPatch(typeof(ArmorUtility), "ApplyArmor")]

@@ -1,27 +1,56 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<AbilityDef>
-		<defName>FireSpew</defName>
-		<label>fire spew</label>
-		<description>Spit a stream of sticky, flammable bile from the mouth. The bile can ignite anything or anyone it hits, and also form flaming pools on the ground.\n\nThe bile is generated and stored by an organ in the neck, along with a separate pouch of hypergolic reactant for ignition.</description>
-		<iconPath>UI/Abilities/FireSpew</iconPath>
-		<cooldownTicksRange>300000</cooldownTicksRange>
+		<defName>PsychicScream</defName>
+		<label>psychic scream</label>
+		<description>Amplify ones scream by attacking the minds of those who hear it.</description>
+		<iconPath>UI/Abilities/AcidSpray</iconPath>
+		<cooldownTicksRange>30000</cooldownTicksRange>
 		<aiCanUse>true</aiCanUse>
-		<warmupStartSound>FireSpew_Warmup</warmupStartSound>
+		<displayOrder>300</displayOrder>
+		<category>Sanguophage</category>
+		<warmupStartSound>AcidSpray_Warmup</warmupStartSound>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
-			<range>7.9</range>
-			<warmupTime>1</warmupTime>
-			<soundCast>FireSpew_Resolve</soundCast>
+			<range>8.9</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>AcidSpray_Resolve</soundCast>
 			<targetParams>
 				<canTargetLocations>true</canTargetLocations>
 			</targetParams>
 		</verbProperties>
 		<comps>
-			<li Class="CompProperties_AbilityFireSpew">
+			<li Class="MageMods.CompProperties_AbilityPsychicScream">
 				<range>7.9</range>
-				<lineWidthEnd>3</lineWidthEnd>
+				<lineWidthEnd>9</lineWidthEnd>
 			</li>
 		</comps>
 	</AbilityDef>
+	<ThingDef>
+		<defName>Proj_Acid</defName>
+		<label>acid</label>
+		<thingClass>Projectile_Liquid</thingClass>
+		<category>Projectile</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<useHitPoints>False</useHitPoints>
+		<neverMultiSelect>True</neverMultiSelect>
+		<graphicData>
+			<texPath>Things/Projectile/Acid</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>AcidBurn</damageDef>
+			<speed>25</speed>
+			<damageAmountBase>30</damageAmountBase>
+			<arcHeightFactor>0.4</arcHeightFactor>
+			<armorPenetrationBase>0.8</armorPenetrationBase>
+			<stoppingPower>1</stoppingPower>
+			<!--<shadowSize>0</shadowSize>
+			<filth>Filth_SpentAcid</filth>
+			<filthCount>1</filthCount>-->
+		</projectile>
+	</ThingDef>
 </Defs>
